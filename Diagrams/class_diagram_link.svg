@@ -1,113 +1,151 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
-<svg width="51cm" height="26cm" viewBox="22 102 1003 511" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="61cm" height="28cm" viewBox="21 102 1211 547" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <g>
     <rect style="fill: #ffffff" x="467" y="103" width="233.3" height="28"/>
     <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="467" y="103" width="233.3" height="28"/>
     <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="583.65" y="122">Training</text>
-    <rect style="fill: #ffffff" x="467" y="131" width="233.3" height="84"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="467" y="131" width="233.3" height="84"/>
+    <rect style="fill: #ffffff" x="467" y="131" width="233.3" height="68"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="467" y="131" width="233.3" height="68"/>
     <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="470" y="145">-wording: String</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="470" y="161">-trainer: User</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="470" y="177">-youtubeUrl: String</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="470" y="193">-accessCode: String</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="470" y="209">-type: TrainingType</text>
-    <rect style="fill: #ffffff" x="467" y="215" width="233.3" height="68"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="467" y="215" width="233.3" height="68"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="470" y="229">+addAttendee(a:User): void</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="470" y="245">+setDocsVisible(v:bool): void</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="470" y="261">+addSubgroup(sg:Group): void</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="470" y="277">+addDocument(d:Upload): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="470" y="161">-youtubeUrl: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="470" y="177">-accessCode: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="470" y="193">-type: TrainingType</text>
+    <rect style="fill: #ffffff" x="467" y="199" width="233.3" height="68"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="467" y="199" width="233.3" height="68"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="470" y="213">+addAttendee(a:User): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="470" y="229">+setDocsVisible(v:bool): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="470" y="245">+addSubgroup(sg:Group): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="470" y="261">+addDocument(d:Upload): void</text>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="34" y="448" width="256.4" height="28"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="34" y="448" width="256.4" height="28"/>
-    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="162.2" y="467">User</text>
-    <rect style="fill: #ffffff" x="34" y="476" width="256.4" height="84"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="34" y="476" width="256.4" height="84"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="37" y="490">-firstName: String</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="37" y="506">-secondName: String</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="37" y="522">-email: String</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="37" y="538">-password: String</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="37" y="554">-birthdate: Datetime</text>
-    <rect style="fill: #ffffff" x="34" y="560" width="256.4" height="52"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="34" y="560" width="256.4" height="52"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="37" y="574">+changePassword(pw:String): void</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="37" y="590">+changeEmail(email:String): void</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="37" y="606">+addTopic(t:Topic): void</text>
+    <rect style="fill: #ffffff" x="23" y="371" width="256.4" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="23" y="371" width="256.4" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="151.2" y="390">User</text>
+    <rect style="fill: #ffffff" x="23" y="399" width="256.4" height="84"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="23" y="399" width="256.4" height="84"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="26" y="413">-firstName: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="26" y="429">-secondName: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="26" y="445">-email: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="26" y="461">-password: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="26" y="477">-birthdate: Datetime</text>
+    <rect style="fill: #ffffff" x="23" y="483" width="256.4" height="52"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="23" y="483" width="256.4" height="52"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="26" y="497">+changePassword(pw:String): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="26" y="513">+changeEmail(email:String): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="26" y="529">+addTopic(t:Topic): void</text>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="830" y="463" width="194.8" height="28"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="830" y="463" width="194.8" height="28"/>
-    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="927.4" y="482">Group</text>
-    <rect style="fill: #ffffff" x="830" y="491" width="194.8" height="8"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="830" y="491" width="194.8" height="8"/>
-    <rect style="fill: #ffffff" x="830" y="499" width="194.8" height="20"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="830" y="499" width="194.8" height="20"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="833" y="513">+addMember(m:User): void</text>
+    <rect style="fill: #ffffff" x="506" y="463" width="194.8" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="506" y="463" width="194.8" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="603.4" y="482">Group</text>
+    <rect style="fill: #ffffff" x="506" y="491" width="194.8" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="506" y="491" width="194.8" height="8"/>
+    <rect style="fill: #ffffff" x="506" y="499" width="194.8" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="506" y="499" width="194.8" height="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="509" y="513">+addMember(m:User): void</text>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="24" y="138" width="110.1" height="28"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="24" y="138" width="110.1" height="28"/>
-    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="79.05" y="157">Topic</text>
-    <rect style="fill: #ffffff" x="24" y="166" width="110.1" height="20"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="24" y="166" width="110.1" height="20"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="27" y="180">-name: String</text>
-    <rect style="fill: #ffffff" x="24" y="186" width="110.1" height="8"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="24" y="186" width="110.1" height="8"/>
+    <rect style="fill: #ffffff" x="28" y="139" width="110.1" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="28" y="139" width="110.1" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="83.05" y="158">Topic</text>
+    <rect style="fill: #ffffff" x="28" y="167" width="110.1" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="28" y="167" width="110.1" height="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="31" y="181">-name: String</text>
+    <rect style="fill: #ffffff" x="28" y="187" width="110.1" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="28" y="187" width="110.1" height="8"/>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="883" y="115" width="125.5" height="28"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="883" y="115" width="125.5" height="28"/>
-    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="945.75" y="134">Upload</text>
-    <rect style="fill: #ffffff" x="883" y="143" width="125.5" height="52"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="883" y="143" width="125.5" height="52"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="886" y="157">-path: String</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="886" y="173">-date: Datetime</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="886" y="189">-visible: bool</text>
-    <rect style="fill: #ffffff" x="883" y="195" width="125.5" height="8"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="883" y="195" width="125.5" height="8"/>
+    <rect style="fill: #ffffff" x="887" y="113" width="125.5" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="887" y="113" width="125.5" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="949.75" y="132">Upload</text>
+    <rect style="fill: #ffffff" x="887" y="141" width="125.5" height="52"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="887" y="141" width="125.5" height="52"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="890" y="155">-path: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="890" y="171">-date: Datetime</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="890" y="187">-visible: bool</text>
+    <rect style="fill: #ffffff" x="887" y="193" width="125.5" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="887" y="193" width="125.5" height="8"/>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="162.2,447.481 162.2,280.001 79.05,280.001 79.05,194.973 "/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="120.625" y="277.001">Favor</text>
-    <polygon style="fill: #000000" points="97.375,277.001 97.375,269.001 89.375,273.001 "/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="166.2" y="443.481">0..*</text>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="83.05" y="206.973">0..*</text>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="151.2,369.995 151.2,280 83.05,280 83.05,196.002 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="117.125" y="277">Favor</text>
+    <polygon style="fill: #000000" points="93.875,277 93.875,269 85.875,273 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="155.2" y="365.995">0..*</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="87.05" y="208.002">0..*</text>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="290.4,550 457,550 457,241 467,241 "/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="459" y="392.5">Attend</text>
-    <polygon style="fill: #000000" points="507.2,392.5 507.2,384.5 515.2,388.5 "/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="294.4" y="547">0..*</text>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="463" y="238">0..*</text>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="280.405,453 457,453 457,225 467,225 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="459" y="336">Attend</text>
+    <polygon style="fill: #000000" points="507.2,336 507.2,328 515.2,332 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="284.405" y="450">0..*</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="463" y="222">0..*</text>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="290.4,462 378.196,462 378.196,193 465.993,193 "/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="380.196" y="324.5">Organize</text>
-    <polygon style="fill: #000000" points="443.796,324.5 443.796,316.5 451.796,320.5 "/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="294.4" y="459">1..1</text>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="461.993" y="190">0..*</text>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="213.681,625.5 334.251,625.5 334.251,185 465.993,185 "/>
+    <polygon style="fill: #ffffff" points="188.509,625.5 202.509,620.7 216.509,625.5 202.509,630.3 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="188.509,625.5 202.509,620.7 216.509,625.5 202.509,630.3 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="336.251" y="402.25">Organize</text>
+    <polygon style="fill: #000000" points="399.851,402.25 399.851,394.25 407.851,398.25 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="220.509" y="622.5">1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="461.993" y="182">0..*</text>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="700.3,189 791.146,189 791.146,159 881.992,159 "/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="793.146" y="171">Reference</text>
-    <polygon style="fill: #000000" points="864.446,171 864.446,163 872.446,167 "/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="704.3" y="186">1..1</text>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="877.992" y="156">0..*</text>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="725.472,157 715.3,157 884.992,157 885.992,157 "/>
+    <polygon style="fill: #ffffff" points="700.3,157 714.3,152.2 728.3,157 714.3,161.8 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="700.3,157 714.3,152.2 728.3,157 714.3,161.8 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="800.146" y="154">Reference</text>
+    <polygon style="fill: #000000" points="836.796,154 836.796,146 844.796,150 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="732.3" y="154">1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="881.992" y="154">0..*</text>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="828.994,491 764.647,491 764.647,225 700.3,225 "/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="766.647" y="355">Compose</text>
-    <polygon style="fill: #000000" points="762.647,355 762.647,347 754.647,351 "/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="824.994" y="488">0..*</text>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="704.3" y="222">1..1</text>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="701.806,491 735.3,491 735.3,241 725.472,241 "/>
+    <polygon style="fill: #ffffff" points="700.3,241 714.3,236.2 728.3,241 714.3,245.8 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="700.3,241 714.3,236.2 728.3,241 714.3,245.8 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="737.3" y="363">Compose</text>
+    <polygon style="fill: #000000" points="733.3,363 733.3,355 725.3,359 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="705.806" y="488">0..*</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="732.3" y="238">1</text>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="830,509 560.2,509 560.2,586 290.4,586 "/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="562.2" y="544.5">Belong</text>
-    <polygon style="fill: #000000" points="610.4,544.5 610.4,536.5 618.4,540.5 "/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="826" y="506">0..*</text>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="294.4" y="583">0..*</text>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="506,509 505,509 280.4,509 279.4,509 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="392.7" y="506">Belong</text>
+    <polygon style="fill: #000000" points="417.8,506 417.8,498 425.8,502 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="502" y="506">0..*</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="283.4" y="506">0..*</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="114" y="603.5" width="73.5" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="114" y="603.5" width="73.5" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="150.75" y="622.5">Trainer</text>
+    <rect style="fill: #ffffff" x="114" y="631.5" width="73.5" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="114" y="631.5" width="73.5" height="8"/>
+    <rect style="fill: #ffffff" x="114" y="639.5" width="73.5" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="114" y="639.5" width="73.5" height="8"/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="151.2,554.241 151.2,577.25 150.75,577.25 150.75,602.494 "/>
+    <polygon style="fill: #ffffff" points="159.2,554.241 151.2,538.241 143.2,554.241 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="159.2,554.241 151.2,538.241 143.2,554.241 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="921" y="376.5" width="310.3" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="921" y="376.5" width="310.3" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1076.15" y="395.5">Planning</text>
+    <rect style="fill: #ffffff" x="921" y="404.5" width="310.3" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="921" y="404.5" width="310.3" height="8"/>
+    <rect style="fill: #ffffff" x="921" y="412.5" width="310.3" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="921" y="412.5" width="310.3" height="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="924" y="426.5">+addTaining(d:Datetime,t:Taining): void</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="700.3,189 803.145,189 803.145,404.5 894.819,404.5 "/>
+    <polygon style="fill: #ffffff" points="919.99,404.5 905.99,409.3 891.99,404.5 905.99,399.7 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="919.99,404.5 905.99,409.3 891.99,404.5 905.99,399.7 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="805.145" y="293.75">Schedule</text>
+    <polygon style="fill: #000000" points="801.145,293.75 801.145,285.75 793.145,289.75 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="704.3" y="186">0..*</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="887.99" y="401.5">1</text>
   </g>
 </svg>
