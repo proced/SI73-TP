@@ -25,7 +25,7 @@
     <rect style="fill: #ffffff" x="23" y="399" width="256.4" height="84"/>
     <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="23" y="399" width="256.4" height="84"/>
     <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="26" y="413">-firstName: String</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="26" y="429">-secondName: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="26" y="429">-lastName: String</text>
     <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="26" y="445">-email: String</text>
     <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="26" y="461">-password: String</text>
     <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="26" y="477">-birthdate: Datetime</text>
@@ -135,17 +135,18 @@
     <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1076.15" y="395.5">Planning</text>
     <rect style="fill: #ffffff" x="921" y="404.5" width="310.3" height="8"/>
     <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="921" y="404.5" width="310.3" height="8"/>
-    <rect style="fill: #ffffff" x="921" y="412.5" width="310.3" height="20"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="921" y="412.5" width="310.3" height="20"/>
+    <rect style="fill: #ffffff" x="921" y="412.5" width="310.3" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="921" y="412.5" width="310.3" height="36"/>
     <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="924" y="426.5">+addTaining(d:Datetime,t:Taining): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="924" y="442.5">+available(d:Datetime): bool</text>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="700.3,189 803.145,189 803.145,404.5 894.819,404.5 "/>
-    <polygon style="fill: #ffffff" points="919.99,404.5 905.99,409.3 891.99,404.5 905.99,399.7 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="919.99,404.5 905.99,409.3 891.99,404.5 905.99,399.7 "/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="805.145" y="293.75">Schedule</text>
-    <polygon style="fill: #000000" points="801.145,293.75 801.145,285.75 793.145,289.75 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="700.3,189 803.145,189 803.145,412.5 894.819,412.5 "/>
+    <polygon style="fill: #ffffff" points="919.99,412.5 905.99,417.3 891.99,412.5 905.99,407.7 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="919.99,412.5 905.99,417.3 891.99,412.5 905.99,407.7 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="805.145" y="297.75">Schedule</text>
+    <polygon style="fill: #000000" points="801.145,297.75 801.145,289.75 793.145,293.75 "/>
     <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="704.3" y="186">0..*</text>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="887.99" y="401.5">1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="887.99" y="409.5">1</text>
   </g>
 </svg>
