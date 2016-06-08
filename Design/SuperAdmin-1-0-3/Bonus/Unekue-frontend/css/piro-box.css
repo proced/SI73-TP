@@ -1,0 +1,239 @@
+/* -------------------------------------------
+ * Template Name: 2Colors
+ * Description: This css file is for the lightbox image popups. 
+---------------------------------------------- */
+.piro_html {
+    position:absolute;
+    top:0;
+    left:0;
+    width:500px;
+    height:500px;
+    display:block;
+    z-index:150001;
+    margin:0;
+    padding:0;
+}
+
+.piro_html .h_c_c {
+    background:url(../img/piro-box/caption.png);
+    margin:0;
+    padding:0;
+}
+
+.piro_html .h_c_c .div_reg {
+    background:url(../img/piro-box/caption.png);
+    width:480px;
+    overflow:hidden;
+    height:480px;
+    margin:0;
+    padding:0;
+}
+
+.piro_overlay {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:150000;
+    background:#000;
+    display:none;
+    cursor:pointer;
+}
+
+.piro_loader {
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:118px;
+    height:118px;
+    display:block;
+    z-index:150005;
+    cursor:pointer;
+    margin:-59px 0 0 -59px;
+}
+
+.piro_loader span {
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-top:-36px;
+    margin-left:-36px;
+    width:72px;
+    height:72px;
+    display:block;
+    z-index:150009;
+    background:url(../img/piro-box/loadinfo.gif) center top no-repeat;
+}
+
+.piro_title {
+    position:fixed;
+    background:url(../img/piro-box/bg_title.png) bottom repeat-x;
+    top:0;
+    left:0;
+    width:100%;
+    text-align:center;
+    color:#FFF;
+    z-index:150000;
+    font-size:18px;
+    display:none;
+    padding:6px 0 10px;
+}
+
+.btn_info {
+    position:absolute;
+    bottom:-7px;
+    right:-7px;
+    width:25px;
+    height:25px;
+    display:block;
+    color:#000;
+    cursor:pointer;
+    background:url(../img/piro-box/b_w/info.png) no-repeat;
+    z-index:1500440;
+    margin:0;
+    padding:0;
+}
+
+.caption {
+    position:absolute;
+    bottom:10px;
+    left:10px;
+    display:block;
+    color:#000;
+    cursor:text;
+    background:#141414;
+    z-index:150018;
+    margin:0;
+    padding:0;
+}
+
+.caption p {
+    display:block;
+    text-align:center;
+    font-weight:400;
+    font-size:14px;
+    z-index:150019;
+    color:#FFF;
+    margin:0;
+    padding:7px 5px;
+}
+
+.nav_container {
+    position:absolute;
+    bottom:17px;
+    right:15px;
+    height:20px;
+    width:60px;
+    z-index:1500190000000;
+}
+
+.piro_close {
+    position:absolute;
+    right:20px;
+    height:20px;
+    width:20px;
+    background:transparent url(../img/piro-box/close.png) no-repeat center center;
+    cursor:pointer;
+    z-index:150022;
+    display:none;
+    margin:0;
+}
+
+a.piro_next {
+    position:absolute;
+    width:20px;
+    right:0;
+    height:20px;
+    text-indent:-999em;
+    outline:none;
+    display:block;
+    background:url(../img/piro-box/next.png) center right no-repeat;
+    border:none;
+    cursor:pointer;
+    z-index:150023;
+    margin:0;
+}
+
+a:hover.piro_next {
+    background:url(../img/piro-box/next.png) center right no-repeat;
+}
+
+.piro_next_fake {
+    position:absolute;
+    width:20px;
+    right:0;
+    height:20px;
+    outline:none;
+    text-indent:-999em;
+    display:none;
+    background:url(../img/piro-box/next.png) center right no-repeat;
+    border:none;
+    cursor:auto;
+    z-index:150020;
+    margin:0;
+}
+
+.piro_prev_fake {
+    position:absolute;
+    width:20px;
+    right:40px;
+    height:20px;
+    outline:none;
+    text-indent:-999em;
+    display:none;
+    background:url(../img/piro-box/prev.png) center right no-repeat;
+    border:none;
+    cursor:auto;
+    z-index:150020;
+    margin:0;
+}
+
+.pirobox_gall {
+    position:relative;
+}
+
+a.piro_prev {
+    position:absolute;
+    width:20px;
+    right:40px;
+    height:20px;
+    text-indent:-999em;
+    outline:none;
+    display:block;
+    background:url(../img/piro-box/prev.png) center left no-repeat;
+    border:none;
+    cursor:pointer;
+    z-index:150024;
+    margin:0;
+}
+
+a:hover.piro_prev {
+    background:url(../img/piro-box/prev.png) center left no-repeat;
+}
+
+a.close_pirobox {
+    color:#bb0f05;
+}
+
+.piro_html table,.piro_html tbody,.piro_html tr,.piro_html th,.piro_html td,.piro_html img {
+    border:none;
+    margin:0;
+    padding:0;
+}
+
+.piro_html .h_t_l,.piro_html .h_t_r,.piro_html .h_b_l,.piro_html .h_b_r {
+    width:10px;
+    height:10px;
+    background:url(../img/piro-box/caption.png);
+}
+
+.piro_html .h_t_c,.piro_html .h_b_c {
+    height:10px;
+    background:url(../img/piro-box/caption.png);
+}
+
+.piro_html .h_c_l,.piro_html .h_c_r {
+    width:10px;
+    background:url(../img/piro-box/caption.png);
+}

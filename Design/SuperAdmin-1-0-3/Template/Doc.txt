@@ -1,0 +1,25 @@
+---------
+Bootstrap
+---------
+http://getbootstrap.com/getting-started/
+
+---------------------------
+How to change template skin
+---------------------------
+Simply add any of the following skin ID to the <body> tag;
+
+1 . #skin-blur-violate (Default)
+2 . #skin-blur-blue
+3 . #skin-blur-chrome
+4 . #skin-blur-city
+5 . #skin-blur-greenish
+6 . #skin-blur-kiwi
+7 . #skin-blur-lights
+8 . #skin-blur-night
+9 . #skin-blur-ocean
+10. #skin-blur-sunny
+11. #skin-blur-sunset
+12. #skin-blur-yellow
+13. #skin-cloth
+14. #skin-tectile
+
