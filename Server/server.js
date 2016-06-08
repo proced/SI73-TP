@@ -27,6 +27,9 @@ app.use(session({
   saveUninitialized: true
 }));
 
+app.use('/font', express.static('static/font'));
+app.use('/css', express.static('static/css'));
+app.use('/js', express.static('static/js'));
 
 app.use(function (req, res, next) {
   var views = req.session.views;
