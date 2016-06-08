@@ -356,18 +356,7 @@ $(document).ready(function(){
         
     })();
 
-    /* --------------------------------------------------------
-     Media Player
-     -----------------------------------------------------------*/
-    (function(){
-	if($('audio, video')[0]) {
-	    $('audio,video').mediaelementplayer({
-		success: function(player, node) {
-		    $('#' + node.id + '-mode').html('mode: ' + player.pluginType);
-		}
-	    });
-	}
-    })();
+  
 
     /* ---------------------------
 	Image Popup [Pirobox]

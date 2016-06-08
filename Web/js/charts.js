@@ -390,7 +390,7 @@ $(function() {
         lineWidth: 1.25,
     });
 
-    $("#stats-line-2").sparkline([5,6,3,9,7,5,4,6,5,6,4,9], {
+    $("#stats-line-2").sparkline([0,1,3,5,8,11,14,19,20,23,23], {
         type: 'line',
         width: '100%',
         height: '65',
