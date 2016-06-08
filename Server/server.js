@@ -2,12 +2,24 @@
 var express = require('express');
 var parseurl = require('parseurl');
 var session = require('express-session');
+var mustache = require('mustache');
 var fs = require('fs');
 
 var app = express();
-var data = JSON.parse(fs.readFileSync('data.json'));
+var data;
 var sess = {};
 var request;
+
+fs.readFile('data.json', 'utf-8', function(err, jsontxt) {
+  if (err) {
+    data = {
+      users: {},
+    };
+    fs.writeFileSync('data.json', 'utf-8', data)
+  } else {
+      data = JSON.parse(jsontxt);
+  }
+});
 
 app.use(session({
   secret: 'si73',
@@ -32,10 +44,9 @@ app.use(function (req, res, next) {
 });
 
 function saveUser(username, password) {
-  if (data[username] === undefined) {
+  if (data.users[username] === undefined) {
     var user = { password: password };
-    data[username] = user;
-    console.log(JSON.stringify(data));
+    data.users[username] = user;
     fs.writeFileSync("data.json", JSON.stringify(data), "utf8");
     return true;
   } else {
@@ -48,8 +59,9 @@ app.get('/signin', function(req, res) {
   request = req;
   var username = req.query.username;
   var password = req.query.password;
-  if ((data[username] !== undefined)
-      && (data[username].password === password)) {
+  console.log('    ' + username + ' ' + password);
+  if ((data.users[username] !== undefined)
+      && (data.users[username].password === password)) {
     sess[req.session.id] = username;
     res.json({ connection: "OK" });
   } else {
@@ -62,6 +74,7 @@ app.get('/signup', function(req, res) {
   request = req;
   var username = req.query.username;
   var password = req.query.password;
+  console.log('    ' + username + ' ' + password);
   if (saveUser(username, password)) {
     res.json({ success: 'User ' + username + ' created.' });
   } else {
@@ -72,6 +85,7 @@ app.get('/signup', function(req, res) {
 app.get('/signout', function(req, res) {
   console.log('Sign out request');
   if (sess[req.session.id] !== undefined) {
+    console.log('    ' + sess[req.session.id]);
     res.json({ user: sess[req.session.id] });
     delete sess[req.session.id];
   } else {
@@ -87,6 +101,21 @@ app.get('/content', function(req, res) {
   } else {
     res.json({ access: "allowed", user: username });
   }
+});
+
+app.get('/test', function(req, res) {
+  console.log('Test request');
+  fs.readFile('html/test.html', 'utf-8', function(err, html) {
+    if (err) throw err;
+    var pdata = {
+      i: "abc",
+      ii: "def",
+      t: [1, 2, 3, 4, 5].map(function(x) {
+          return {n: x};
+      }),
+    };
+    res.send(mustache.render(html, pdata));
+  });
 });
 
 app.listen(3000, function() {
