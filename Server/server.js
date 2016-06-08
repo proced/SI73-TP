@@ -57,19 +57,23 @@ function saveUser(username, password) {
   }
 }
 
+function signIn(username, password, sessId) {
+  if ((data.users[username] !== undefined)
+      && (data.users[username].password === password)) {
+    sess[sessId] = username;
+    return true;
+  } else {
+    return false;
+  }
+}
+
 app.get('/signin', function(req, res) {
   console.log('Sign in request');
   request = req;
   var username = req.query.username;
   var password = req.query.password;
   console.log('    ' + username + ' ' + password);
-  if ((data.users[username] !== undefined)
-      && (data.users[username].password === password)) {
-    sess[req.session.id] = username;
-    res.json({ connection: 'OK' });
-  } else {
-    res.json({ connection: 'NOK' });
-  }
+  res.json({ connection: signIn(username, password, req.session.id) });
 });
 
 app.get('/signup', function(req, res) {
@@ -80,6 +84,7 @@ app.get('/signup', function(req, res) {
   console.log('    ' + username + ' ' + password);
   if (saveUser(username, password)) {
     res.json({ success: 'User ' + username + ' created.' });
+    signIn(username, password, req.session.id);
   } else {
     res.json({ err: 'Username ' + username + ' is already taken.' });
   }
