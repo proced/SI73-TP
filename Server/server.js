@@ -35,7 +35,7 @@ app.use(session({
 
 app.use('/media', express.static('static/media'));
 app.use('/files', express.static('static/files'));
-app.use('/font', express.static('static/font'));
+app.use('/fonts', express.static('static/fonts'));
 app.use('/css', express.static('static/css'));
 app.use('/img', express.static('static/img'));
 app.use('/js', express.static('static/js'));
@@ -87,35 +87,64 @@ function serv(res, file, pdata) {
   });
 }
 
-app.get('/login', function(req, res) {
-  console.log('Login request');
-  serv(res, 'login.html', {});
+function register(res) {
+  serv(res, 'login.html', {
+    signin: '',
+    signup: 'active',
+  });
+}
+
+function isConnected(sessId) {
+  return sess[sessId] !== undefined;
+}
+
+app.get('/', function(req, res) {
+  if (isConnected(req.session.id)) {
+      res.redirect('/content');
+  } else {
+      res.redirect('/login');
+  }
 });
 
-app.get('/signup', function(req, res) {
+app.get('/login', function(req, res) {
+  console.log('Login request');
+  serv(res, 'login.html', {
+    signin: 'active',
+    signup: '',
+  });
+});
+
+app.post('/signup', function(req, res) {
   console.log('Sign up request');
   request = req;
-  var username = req.query.username;
-  var password = req.query.password;
-  console.log('    ' + username + ' ' + password);
-  if (saveUser(username, password)) {
-    res.json({ success: 'User ' + username + ' created.' });
-    signIn(username, password, req.session.id);
+  var username = req.body.un;
+  var password;
+  if (req.body.pw[0] === req.body.pw[1]) {
+    password = req.body.pw[0];
+    console.log('    ' + username + ' ' + password);
+    if (saveUser(username, password)) {
+      signIn(username, password, req.session.id);
+      res.redirect('/content');
+    } else {
+      console.log('User ' + username + ' already exists');
+      register(res);
+    }
   } else {
-    res.json({ err: 'Username ' + username + ' is already taken.' });
+    console.log(req.body.pw[0] + ' != ' + req.body.pw[1]);
+    register(res);
   }
 });
 
 app.post('/signin', function(req, res) {
   console.log('Sign in request');
   request = req;
-  var username = req.body.username;
-  var password = req.body.password;
+  var username = req.body.un;
+  var password = req.body.pw;
   console.log('    ' + username + ' ' + password);
   if (signIn(username, password, req.session.id)) {
     res.redirect('/content');
   } else {
-      loginFailed(res);
+    serv(res, 'login.html', {err: "Identifiants incorrects"});
   }
 });
 
@@ -123,11 +152,12 @@ app.get('/signout', function(req, res) {
   console.log('Sign out request');
   if (sess[req.session.id] !== undefined) {
     console.log('    ' + sess[req.session.id]);
-    res.json({ user: sess[req.session.id] });
     delete sess[req.session.id];
+    //res.json({ user: sess[req.session.id] });
   } else {
-    res.json({ err: 'no user connected' })
+    //res.json({ err: 'no user connected' })
   }
+  res.redirect('/login');
 });
 
 app.get('/content', function(req, res) {
@@ -155,9 +185,14 @@ app.get('/test', function(req, res) {
   });
 });
 
-app.get('/*', function(req, res) {
-    console.log('Invalid request');
-    res.status(404).send('<html><body><h1>404 Not Found</html></body></h1>');
+app.get('/*', function(req, res){
+  console.log('Invalid GET request: ' + req.url);
+  res.status(404).send('404 Not found');
+});
+
+app.post('/*', function(req, res){
+  console.log('Invalid POST request: ' + req.url);
+  res.status(404).send('404 Not found');
 });
 
 app.listen(3000, function() {
