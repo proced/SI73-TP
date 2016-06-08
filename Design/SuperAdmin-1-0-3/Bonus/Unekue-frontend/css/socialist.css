@@ -1,0 +1,184 @@
+/* -------------------------------------------
+ * Template Name: 2Colors
+ * Description: This css file is for the Social feeds used in the feeds drawer
+---------------------------------------------- */
+.socialist {
+    background-color: #fefefe;
+    border: 4px solid #000;
+    color:#666;
+    font-size: 12px;
+    margin: 0 10px 20px 10px;
+    width: 160px;
+    text-align: center;
+    display: block;
+}
+
+.socialist .content {
+    border:5px solid #fff;    
+}
+
+.socialist .content div {
+    color:#616161;
+    text-align: left;
+    overflow: hidden;
+}
+
+.socialist .content img {
+    max-height: 105px;
+}
+
+.socialist .foot {
+    color:#fff;
+    padding:5px;
+    background-color:#888;
+    height:44px;
+    text-align: left;
+}
+
+.socialist .foot a {
+    color:#fff;
+}  
+
+.socialist .source {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+}
+
+.socialist .api {
+    float:right;
+    background-repeat:no-repeat;
+    background-size: 32px;
+} 
+
+.socialist .api a {
+    height:32px;
+    width:32px;
+    display:block;
+}  
+
+.socialist .date {
+    margin:-5px 0 0 0;
+    font-size:80%;
+}
+
+.socialist-pinterest .foot {
+    background-color:#cc0000;
+}
+
+.socialist-pinterest .api {
+    background-image:url('../img/social/pinterest.png');
+    border: 1px solid #ac0712;
+}  
+
+.socialist-pinterest .content img {
+    width:150px;
+} 
+
+.socialist-linkedin .content img {
+    width:40px;
+    float:left;
+}
+.socialist-linkedin .foot {
+    background-color:#4875B4;
+}
+.socialist-linkedin .api {
+    background-image:url('../img/social/linkedin.png');
+    border: 1px solid #04638b;
+}  
+
+.socialist-rss .foot {
+    background-color:#FF7400;
+}
+
+.socialist-rss .api {
+    background-image:url('../img/social/rss.png');
+    border: 1px solid #c55f14;
+} 
+
+.socialist-facebook .foot {
+    background-color:#3B5998;
+}
+
+.socialist-facebook .api {
+    background-image:url('../img/social/facebook.png');
+    border: 1px solid #334e85;
+} 
+
+.socialist-flickr .foot {
+    background-color:#dfdfdf;
+}  
+.socialist-flickr .api {
+    background-image:url('../img/social/flickr.png');
+    border: 1px solid #eee;
+}  
+
+.socialist-twitter .content  img {
+    width:40px;
+    max-width:40px;
+    min-width:40px;
+    float:left;
+    margin: 0 5px 2px 0;
+}
+.socialist-twitter .foot {
+   background-color:#4ebede;
+}
+
+.socialist-twitter .api {
+    background-image:url('../img/social/twitter.png');
+    border: 1px solid #1a92b9;
+}
+
+.socialist-tumblr .foot {
+   background-color:#00225F;
+}
+.socialist-tumblr .api {
+    background-image:url('images/32/tumblr-32x32.png');
+    border: 1px solid #0b233b;
+}  
+
+.socialist-craigslist .foot {
+   background-color:#700070;
+}
+.socialist-craigslist .api {
+    background-image:url('../img/social/craigslist.png');
+    border: 1px solid #4c1665;
+}  
+
+.socialist-google .foot {
+   background-color:#d61e1e;
+}
+.socialist-google .content img {
+    width:auto;
+    min-width:100px;
+}
+.socialist-google .api {
+    background-image:url('images/32/google-32x32.png');
+}  
+
+.socialist-youtube .foot {
+   background-color:#b51a1a;
+}
+
+.socialist-youtube .api {
+    background-image:url('../img/social/youtube.png');
+}  
+
+.socialist-vimeo .foot {
+    background-color:#4C8AB0;
+}  
+.socialist-vimeo .content img {
+    width:150px;
+} 
+.socialist-vimeo .api {
+    background-image:url('../img/social/vimeo.png');
+    border: 1px solid #366988;
+}  
+
+.socialist-loader {
+    min-width:120px;
+    min-height:120px;
+    width: 100%;
+    background:url(../img/piro-box/loadinfo.gif) center top no-repeat;
+}

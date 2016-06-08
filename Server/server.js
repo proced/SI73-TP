@@ -2,12 +2,24 @@
 var express = require('express');
 var parseurl = require('parseurl');
 var session = require('express-session');
+var mustache = require('mustache');
 var fs = require('fs');
 
 var app = express();
-var data = JSON.parse(fs.readFileSync('data.json'));
+var data;
 var sess = {};
 var request;
+
+fs.readFile('data.json', 'utf-8', function(err, jsontxt) {
+  if (err) {
+    data = {
+      users: {},
+    };
+    fs.writeFileSync('data.json', JSON.stringify(data), 'utf-8')
+  } else {
+      data = JSON.parse(jsontxt);
+  }
+});
 
 app.use(session({
   secret: 'si73',
@@ -15,6 +27,9 @@ app.use(session({
   saveUninitialized: true
 }));
 
+app.use('/font', express.static('static/font'));
+app.use('/css', express.static('static/css'));
+app.use('/js', express.static('static/js'));
 
 app.use(function (req, res, next) {
   var views = req.session.views;
@@ -32,11 +47,20 @@ app.use(function (req, res, next) {
 });
 
 function saveUser(username, password) {
-  if (data[username] === undefined) {
+  if (data.users[username] === undefined) {
     var user = { password: password };
-    data[username] = user;
-    console.log(JSON.stringify(data));
-    fs.writeFileSync("data.json", JSON.stringify(data), "utf8");
+    data.users[username] = user;
+    fs.writeFileSync('data.json', JSON.stringify(data), 'utf-8');
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function signIn(username, password, sessId) {
+  if ((data.users[username] !== undefined)
+      && (data.users[username].password === password)) {
+    sess[sessId] = username;
     return true;
   } else {
     return false;
@@ -48,13 +72,8 @@ app.get('/signin', function(req, res) {
   request = req;
   var username = req.query.username;
   var password = req.query.password;
-  if ((data[username] !== undefined)
-      && (data[username].password === password)) {
-    sess[req.session.id] = username;
-    res.json({ connection: "OK" });
-  } else {
-    res.json({ connection: "NOK" });
-  }
+  console.log('    ' + username + ' ' + password);
+  res.json({ connection: signIn(username, password, req.session.id) });
 });
 
 app.get('/signup', function(req, res) {
@@ -62,8 +81,10 @@ app.get('/signup', function(req, res) {
   request = req;
   var username = req.query.username;
   var password = req.query.password;
+  console.log('    ' + username + ' ' + password);
   if (saveUser(username, password)) {
     res.json({ success: 'User ' + username + ' created.' });
+    signIn(username, password, req.session.id);
   } else {
     res.json({ err: 'Username ' + username + ' is already taken.' });
   }
@@ -72,6 +93,7 @@ app.get('/signup', function(req, res) {
 app.get('/signout', function(req, res) {
   console.log('Sign out request');
   if (sess[req.session.id] !== undefined) {
+    console.log('    ' + sess[req.session.id]);
     res.json({ user: sess[req.session.id] });
     delete sess[req.session.id];
   } else {
@@ -83,10 +105,30 @@ app.get('/content', function(req, res) {
   console.log('Access request');
   var username = sess[req.session.id];
   if (username === undefined) {
-    res.json({ access: "denied" });
+    res.json({ access: 'denied' });
   } else {
-    res.json({ access: "allowed", user: username });
+    res.json({ access: 'allowed', user: username });
   }
+});
+
+app.get('/test', function(req, res) {
+  console.log('Test request');
+  fs.readFile('html/test.html', 'utf-8', function(err, html) {
+    if (err) throw err;
+    var pdata = {
+      i: 'abc',
+      ii: 'def',
+      t: [1, 2, 3, 4, 5].map(function(x) {
+          return {n: x};
+      }),
+    };
+    res.send(mustache.render(html, pdata));
+  });
+});
+
+app.get('/*', function(req, res) {
+    console.log('Invalid request');
+    res.status(404).send('<html><body><h1>404 Not Found</html></body></h1>');
 });
 
 app.listen(3000, function() {
