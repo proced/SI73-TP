@@ -48,19 +48,34 @@
             </form>
             
             <!-- Register -->
-            <form method="post" class="box animated tile {{signup}}" id="box-register" action="signup">
+            <form method="post" class="form-validation-3 box animated tile {{signup}}" id="box-register" action="signup">
                 <h2 class="m-t-0 m-b-15">Inscription</h2>
-                <input name="name" type="text" class="login-control m-b-10" placeholder="Nom">
-                <input name="un" type="text" class="login-control m-b-10" placeholder="Pseudo">
-                <input name="email" type="email" class="login-control m-b-10" placeholder="adresse mail">    
-                <input name="pw" type="password" class="login-control m-b-10" placeholder="mot de passe">
-                <input name="pw" type="password" class="login-control m-b-20" placeholder="confirmer le mot de passe">
+                <input name="name" type="text" class="login-control m-b-10 validate[required]" placeholder="Nom">
+                <input name="un" type="text" class="login-control m-b-10 validate[required]" placeholder="Pseudo">
+                <input name="email" type="text" class="login-control m-b-10 validate[required,custom[email]]" placeholder="adresse mail">    
+                <input name="pw" type="password" class="login-control m-b-10 validate[required]" id="password" placeholder="mot de passe">
+                <input name="pw" type="password" class="login-control m-b-20 validate[required,equals[password]]" placeholder="confirmer le mot de passe">
 
                 <input type="submit" value="Valider"/>
                 <button class="btn btn-sm m-r-5">S'inscrire</button>
 
                 <small><a class="box-switcher" data-switch="box-login" href="">Vous avez déjà un compte?</a></small>
             </form>
+			<!--<form role="form" class="form-validation-3">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label>Password</label>
+                        <input type="password" class="input-sm validate[required] form-control" name="password" id="password" placeholder="...">
+                    </div>
+                    <div class="form-group m-b-15 col-md-6">
+                        <label>Confirm Password</label>
+                        <input type="password" class="input-sm validate[required,equals[password]] form-control" placeholder="...">
+                    </div>
+                </div>
+
+                <input class="btn btn-sm" type="submit" value="VALIDATE">
+                <button class="btn btn-sm validation-clear">CLOSE PROMPTS</button>
+            </form>-->
             
             <!-- Forgot Password -->
             <!--<form class="box animated tile" id="box-reset">
@@ -89,5 +104,10 @@
         
         <!-- All JS functions -->
         <script src="js/functions.js"></script>
+
+
+        <!--  Form Related -->
+        <script src="js/validation/validate.min.js"></script> <!-- jQuery Form Validation Library -->
+        <script src="js/validation/validationEngine.min.js"></script> <!-- jQuery Form Validation Library - requirred with above js -->
     </body>
 </html>

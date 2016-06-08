@@ -119,7 +119,7 @@ app.post('/signup', function(req, res) {
   request = req;
   var username = req.body.un;
   var password;
-  if (req.body.pw[0] === req.body.pw[1]) {
+  if ((req.body.pw[0] !== '') && (req.body.pw[0] === req.body.pw[1])) {
     password = req.body.pw[0];
     console.log('    ' + username + ' ' + password);
     if (saveUser(username, password)) {
