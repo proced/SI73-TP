@@ -15,7 +15,7 @@ fs.readFile('data.json', 'utf-8', function(err, jsontxt) {
     data = {
       users: {},
     };
-    fs.writeFileSync('data.json', 'utf-8', data)
+    fs.writeFileSync('data.json', JSON.stringify(data), 'utf-8')
   } else {
       data = JSON.parse(jsontxt);
   }
@@ -47,7 +47,7 @@ function saveUser(username, password) {
   if (data.users[username] === undefined) {
     var user = { password: password };
     data.users[username] = user;
-    fs.writeFileSync("data.json", JSON.stringify(data), "utf8");
+    fs.writeFileSync('data.json', JSON.stringify(data), 'utf-8');
     return true;
   } else {
     return false;
@@ -63,9 +63,9 @@ app.get('/signin', function(req, res) {
   if ((data.users[username] !== undefined)
       && (data.users[username].password === password)) {
     sess[req.session.id] = username;
-    res.json({ connection: "OK" });
+    res.json({ connection: 'OK' });
   } else {
-    res.json({ connection: "NOK" });
+    res.json({ connection: 'NOK' });
   }
 });
 
@@ -97,9 +97,9 @@ app.get('/content', function(req, res) {
   console.log('Access request');
   var username = sess[req.session.id];
   if (username === undefined) {
-    res.json({ access: "denied" });
+    res.json({ access: 'denied' });
   } else {
-    res.json({ access: "allowed", user: username });
+    res.json({ access: 'allowed', user: username });
   }
 });
 
@@ -108,8 +108,8 @@ app.get('/test', function(req, res) {
   fs.readFile('html/test.html', 'utf-8', function(err, html) {
     if (err) throw err;
     var pdata = {
-      i: "abc",
-      ii: "def",
+      i: 'abc',
+      ii: 'def',
       t: [1, 2, 3, 4, 5].map(function(x) {
           return {n: x};
       }),
