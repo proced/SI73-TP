@@ -121,6 +121,11 @@ app.get('/test', function(req, res) {
   });
 });
 
+app.get('/*', function(req, res) {
+    console.log('Invalid request');
+    res.status(404).send('<html><body><h1>404 Not Found</html></body></h1>');
+});
+
 app.listen(3000, function() {
   console.log('SI73 server running on 3000');
 });
