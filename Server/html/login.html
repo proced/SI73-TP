@@ -28,18 +28,20 @@
             <div class="clearfix"></div>
             
             <!-- Login -->
-            <form method="post" class="box tile animated {{signin}}" id="box-login required" action="signin">
+            <form method="post" class="box tile animated form-validation-3 required {{signin}}" id="box-login" action="signin">
                 <h2 class="m-t-0 m-b-15">Connexion</h2>
-                <input name="un" type="text" class="login-control m-b-10" placeholder="Adresse mail">
-                <input name="pw" type="password" class="login-control" placeholder="mot de passe">
+                {{#isLoginErr}}
+                <div class="alert alert-danger">{{loginErr}}</div>
+                {{/isLoginErr}}
+                <input name="un" type="text" class="login-control m-b-10 validate[required]" placeholder="login">
+                <input name="pw" type="password" class="login-control validate[required]" placeholder="mot de passe">
                 <div class="checkbox m-b-20">
                     <label>
                         <input type="checkbox">
                         Se souvenir de moi
                     </label>
                 </div>
-                <input type="submit" value="Valider"/>
-                <button class="btn btn-sm m-r-5">Se connecter</button>
+                <input class="btn btn-sm m-r-5" type="submit" value="Se connecter"/>
                 
                 <small>
                     <a class="box-switcher" data-switch="box-register" href="">Vous n'avez pas de compte ?</a><!-- ou
@@ -50,14 +52,16 @@
             <!-- Register -->
             <form method="post" class="form-validation-3 box animated tile {{signup}}" id="box-register" action="signup">
                 <h2 class="m-t-0 m-b-15">Inscription</h2>
+                {{#isRegisterErr}}
+                <div class="alert alert-danger">{{registerErr}}</div>
+                {{/isRegisterErr}}
                 <input name="name" type="text" class="login-control m-b-10 validate[required]" placeholder="Nom">
                 <input name="un" type="text" class="login-control m-b-10 validate[required]" placeholder="Pseudo">
                 <input name="email" type="text" class="login-control m-b-10 validate[required,custom[email]]" placeholder="adresse mail">    
                 <input name="pw" type="password" class="login-control m-b-10 validate[required]" id="password" placeholder="mot de passe">
                 <input name="pw" type="password" class="login-control m-b-20 validate[required,equals[password]]" placeholder="confirmer le mot de passe">
 
-                <input type="submit" value="Valider"/>
-                <button class="btn btn-sm m-r-5">S'inscrire</button>
+                <input class="btn btn-sm m-r-5" type="submit" value="S'inscrire"/>
 
                 <small><a class="box-switcher" data-switch="box-login" href="">Vous avez déjà un compte?</a></small>
             </form>

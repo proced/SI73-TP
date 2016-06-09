@@ -11,6 +11,8 @@ var data;
 var sess = {};
 var request;
 
+var lastLoginFailed = false;
+
 fs.readFile('data.json', 'utf-8', function(err, jsontxt) {
   if (err) {
     data = {
@@ -40,10 +42,6 @@ app.use('/css', express.static('static/css'));
 app.use('/img', express.static('static/img'));
 app.use('/js', express.static('static/js'));
 
-function loginFailed(res) {
-  res.send("<html><body><h1>Échec de connexion</h1></body></html>")
-}
-
 app.use(function (req, res, next) {
   var views = req.session.views;
 
@@ -59,9 +57,13 @@ app.use(function (req, res, next) {
   next();
 });
 
-function saveUser(username, password) {
+function saveUser(username, password, name, email) {
   if (data.users[username] === undefined) {
-    var user = { password: password };
+    var user = {
+        password: password,
+        name: name,
+        email: email,
+    };
     data.users[username] = user;
     fs.writeFileSync('data.json', JSON.stringify(data), 'utf-8');
     return true;
@@ -87,10 +89,18 @@ function serv(res, file, pdata) {
   });
 }
 
-function register(res) {
+function register(res, err) {
+  var isRegisterErr = true;
+  if (err === '') {
+    isRegisterErr = false;
+  }
   serv(res, 'login.html', {
     signin: '',
     signup: 'active',
+    isLoginErr: false,
+    loginErr: '',
+    isRegisterErr: isRegisterErr,
+    registerErr: err,
   });
 }
 
@@ -98,40 +108,43 @@ function isConnected(sessId) {
   return sess[sessId] !== undefined;
 }
 
-app.get('/', function(req, res) {
-  if (isConnected(req.session.id)) {
-      res.redirect('/content');
-  } else {
-      res.redirect('/login');
-  }
-});
-
 app.get('/login', function(req, res) {
   console.log('Login request');
+  var isLoginErr = false;
+  if (lastLoginFailed) {
+    isLoginErr = true;
+  }
   serv(res, 'login.html', {
     signin: 'active',
+    isLoginErr: isLoginErr,
+    loginErr: 'Identifiants incorrects',
     signup: '',
+    isRegisterErr: false,
+    registerErr: '',
   });
 });
 
 app.post('/signup', function(req, res) {
   console.log('Sign up request');
   request = req;
+  lastLoginFailed = false;
   var username = req.body.un;
+  var name = req.body.name;
+  var email = req.body.email;
   var password;
   if ((req.body.pw[0] !== '') && (req.body.pw[0] === req.body.pw[1])) {
     password = req.body.pw[0];
     console.log('    ' + username + ' ' + password);
-    if (saveUser(username, password)) {
+    if (saveUser(username, password, name, email)) {
       signIn(username, password, req.session.id);
       res.redirect('/content');
     } else {
       console.log('User ' + username + ' already exists');
-      register(res);
+      register(res, 'Login déjà utilisé');
     }
   } else {
     console.log(req.body.pw[0] + ' != ' + req.body.pw[1]);
-    register(res);
+    register(res, 'Les mots de passe ne correspondent pas');
   }
 });
 
@@ -140,12 +153,28 @@ app.post('/signin', function(req, res) {
   request = req;
   var username = req.body.un;
   var password = req.body.pw;
-  console.log('    ' + username + ' ' + password);
+  console.log('    ' + username);
   if (signIn(username, password, req.session.id)) {
+    console.log('    OK');
+    lastLoginFailed = false;
     res.redirect('/content');
   } else {
-    serv(res, 'login.html', {err: "Identifiants incorrects"});
+    console.log('    NOK');
+    lastLoginFailed = true;
+    res.redirect('login.html');
   }
+});
+
+app.use(function(req, res, next) {
+  if (!isConnected(req.session.id)) {
+    res.redirect('/login');
+  } else {
+    next();
+  }
+});
+
+app.get('/', function(req, res) {
+  res.redirect('/content');
 });
 
 app.get('/signout', function(req, res) {
@@ -168,6 +197,14 @@ app.get('/content', function(req, res) {
   } else {
     res.json({ access: 'allowed', user: username });
   }
+});
+
+app.get('/training', function(req, res) {
+  console.log('Training request');
+  var user = data.users[sess[req.session.id]];
+  serv(res, 'training.html', {
+    name: user.name,
+  })
 });
 
 app.get('/test', function(req, res) {
