@@ -108,6 +108,10 @@ function isConnected(sessId) {
   return sess[sessId] !== undefined;
 }
 
+function getUser(sessId) {
+  return data.users[sess[sessId]];
+}
+
 app.get('/login', function(req, res) {
   console.log('Login request');
   var isLoginErr = false;
@@ -134,10 +138,10 @@ app.post('/signup', function(req, res) {
   var password;
   if ((req.body.pw[0] !== '') && (req.body.pw[0] === req.body.pw[1])) {
     password = req.body.pw[0];
-    console.log('    ' + username + ' ' + password);
+    console.log('    ' + username);
     if (saveUser(username, password, name, email)) {
       signIn(username, password, req.session.id);
-      res.redirect('/content');
+      res.redirect('/attendee');
     } else {
       console.log('User ' + username + ' already exists');
       register(res, 'Login déjà utilisé');
@@ -157,7 +161,7 @@ app.post('/signin', function(req, res) {
   if (signIn(username, password, req.session.id)) {
     console.log('    OK');
     lastLoginFailed = false;
-    res.redirect('/content');
+    res.redirect('/attendee');
   } else {
     console.log('    NOK');
     lastLoginFailed = true;
@@ -174,7 +178,7 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', function(req, res) {
-  res.redirect('/content');
+  res.redirect('/attendee');
 });
 
 app.get('/signout', function(req, res) {
@@ -182,49 +186,51 @@ app.get('/signout', function(req, res) {
   if (sess[req.session.id] !== undefined) {
     console.log('    ' + sess[req.session.id]);
     delete sess[req.session.id];
-    //res.json({ user: sess[req.session.id] });
   } else {
-    //res.json({ err: 'no user connected' })
   }
   res.redirect('/login');
 });
 
-app.get('/content', function(req, res) {
-  console.log('Access request');
-  var username = sess[req.session.id];
-  if (username === undefined) {
-    res.json({ access: 'denied' });
-  } else {
-    res.json({ access: 'allowed', user: username });
-  }
+app.get('/attendee', function(req, res) {
+  console.log('Attendee request');
+  serv(res, 'attendee.html', {
+    name: getUser(req.session.id).name,
+  });
 });
 
 app.get('/training', function(req, res) {
   console.log('Training request');
-  var user = data.users[sess[req.session.id]];
   serv(res, 'training.html', {
-    name: user.name,
+    name: getUser(req.session.id).name,
   })
 });
 
-app.get('/test', function(req, res) {
-  console.log('Test request');
-  fs.readFile('html/test.html', 'utf-8', function(err, html) {
-    if (err) throw err;
-    var pdata = {
-      i: 'abc',
-      ii: 'def',
-      t: [1, 2, 3, 4, 5].map(function(x) {
-          return {n: x};
-      }),
-    };
-    res.send(mustache.render(html, pdata));
-  });
+app.get('/manage', function(req, res) {
+  console.log('Manage request');
+  serv(res, 'manage.html', {
+    name: getUser(req.session.id).name,
+  })
 });
+
+//app.get('/test', function(req, res) {
+//  console.log('Test request');
+//  fs.readFile('html/test.html', 'utf-8', function(err, html) {
+//    if (err) throw err;
+//    var pdata = {
+//      i: 'abc',
+//      ii: 'def',
+//      t: [1, 2, 3, 4, 5].map(function(x) {
+//          return {n: x};
+//      }),
+//    };
+//    res.send(mustache.render(html, pdata));
+//  });
+//});
 
 app.get('/*', function(req, res){
   console.log('Invalid GET request: ' + req.url);
-  res.status(404).send('404 Not found');
+  res.status(404);
+  serv(res, '404.html', {})
 });
 
 app.post('/*', function(req, res){
