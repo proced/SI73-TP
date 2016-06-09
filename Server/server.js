@@ -249,8 +249,8 @@ app.post('/*', function(req, res){
   res.status(404).send('404 Not found');
 });
 
-app.listen(3000, function() {
-  log('SI73 server running on 3000');
+app.listen(80, function() {
+  log('SI73 server running on port 80');
 });
 
 exports.r = function() {
