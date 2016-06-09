@@ -5,6 +5,9 @@ var session = require('express-session');
 var mustache = require('mustache');
 var bodyParser = require('body-parser');
 var fs = require('fs');
+var crypto = require('crypto');
+
+var sel = 'difvzhbvubororifxtrzhockbihoxri';
 
 var app = express();
 var data;
@@ -23,6 +26,10 @@ fs.readFile('data.json', 'utf-8', function(err, jsontxt) {
       data = JSON.parse(jsontxt);
   }
 });
+
+function log(s) {
+  console.log('[' + new Date() + '] ' + s);
+}
 
 app.use(bodyParser.urlencoded({
   extended: true
@@ -57,10 +64,14 @@ app.use(function (req, res, next) {
   next();
 });
 
+function md5(s) {
+  return crypto.createHash('md5').update(sel + s).digest('hex');
+}
+
 function saveUser(username, password, name, email) {
   if (data.users[username] === undefined) {
     var user = {
-        password: password,
+        password: md5(password),
         name: name,
         email: email,
     };
@@ -74,7 +85,7 @@ function saveUser(username, password, name, email) {
 
 function signIn(username, password, sessId) {
   if ((data.users[username] !== undefined)
-      && (data.users[username].password === password)) {
+      && (data.users[username].password === md5(password))) {
     sess[sessId] = username;
     return true;
   } else {
@@ -113,7 +124,7 @@ function getUser(sessId) {
 }
 
 app.get('/login', function(req, res) {
-  console.log('Login request');
+  log('Login request');
   var isLoginErr = false;
   if (lastLoginFailed) {
     isLoginErr = true;
@@ -129,7 +140,7 @@ app.get('/login', function(req, res) {
 });
 
 app.post('/signup', function(req, res) {
-  console.log('Sign up request');
+  log('Sign up request');
   request = req;
   lastLoginFailed = false;
   var username = req.body.un;
@@ -138,32 +149,32 @@ app.post('/signup', function(req, res) {
   var password;
   if ((req.body.pw[0] !== '') && (req.body.pw[0] === req.body.pw[1])) {
     password = req.body.pw[0];
-    console.log('    ' + username);
+    log('    ' + username);
     if (saveUser(username, password, name, email)) {
       signIn(username, password, req.session.id);
       res.redirect('/attendee');
     } else {
-      console.log('User ' + username + ' already exists');
+      log('User ' + username + ' already exists');
       register(res, 'Login déjà utilisé');
     }
   } else {
-    console.log(req.body.pw[0] + ' != ' + req.body.pw[1]);
+    log(req.body.pw[0] + ' != ' + req.body.pw[1]);
     register(res, 'Les mots de passe ne correspondent pas');
   }
 });
 
 app.post('/signin', function(req, res) {
-  console.log('Sign in request');
+  log('Sign in request');
   request = req;
   var username = req.body.un;
   var password = req.body.pw;
-  console.log('    ' + username);
+  log('    ' + username);
   if (signIn(username, password, req.session.id)) {
-    console.log('    OK');
+    log('    OK');
     lastLoginFailed = false;
     res.redirect('/attendee');
   } else {
-    console.log('    NOK');
+    log('    NOK');
     lastLoginFailed = true;
     res.redirect('login.html');
   }
@@ -182,9 +193,9 @@ app.get('/', function(req, res) {
 });
 
 app.get('/signout', function(req, res) {
-  console.log('Sign out request');
+  log('Sign out request');
   if (sess[req.session.id] !== undefined) {
-    console.log('    ' + sess[req.session.id]);
+    log('    ' + sess[req.session.id]);
     delete sess[req.session.id];
   } else {
   }
@@ -192,28 +203,28 @@ app.get('/signout', function(req, res) {
 });
 
 app.get('/attendee', function(req, res) {
-  console.log('Attendee request');
+  log('Attendee request');
   serv(res, 'attendee.html', {
     name: getUser(req.session.id).name,
   });
 });
 
 app.get('/training', function(req, res) {
-  console.log('Training request');
+  log('Training request');
   serv(res, 'training.html', {
     name: getUser(req.session.id).name,
   })
 });
 
 app.get('/manage', function(req, res) {
-  console.log('Manage request');
+  log('Manage request');
   serv(res, 'manage.html', {
     name: getUser(req.session.id).name,
   })
 });
 
 //app.get('/test', function(req, res) {
-//  console.log('Test request');
+//  log('Test request');
 //  fs.readFile('html/test.html', 'utf-8', function(err, html) {
 //    if (err) throw err;
 //    var pdata = {
@@ -228,18 +239,18 @@ app.get('/manage', function(req, res) {
 //});
 
 app.get('/*', function(req, res){
-  console.log('Invalid GET request: ' + req.url);
+  log('Invalid GET request: ' + req.url);
   res.status(404);
   serv(res, '404.html', {})
 });
 
 app.post('/*', function(req, res){
-  console.log('Invalid POST request: ' + req.url);
+  log('Invalid POST request: ' + req.url);
   res.status(404).send('404 Not found');
 });
 
 app.listen(3000, function() {
-  console.log('SI73 server running on 3000');
+  log('SI73 server running on 3000');
 });
 
 exports.r = function() {
