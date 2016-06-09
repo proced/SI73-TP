@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie9"><![endif]-->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        <meta name="format-detection" content="telephone=no">
+        <meta charset="UTF-8">
+
+        <title>Organiser un cours</title>
+            
+        <!-- CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/animate.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/form.css" rel="stylesheet">
+        <link href="css/calendar.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/icons.css" rel="stylesheet">
+        <link href="css/generics.css" rel="stylesheet"> 
+    </head>
+    <body id="skin-blur-ocean">
+        <header id="header" class="media">
+            <a href="" id="menu-toggle"></a> 
+            <a class="logo pull-left" href="index.html">Accueil</a>
+            
+            <div class="media-body">
+                <div class="media" id="top-menu">
+                    <div class="pull-left tm-icon">
+                        <a data-drawer="messages" class="drawer-toggle" href="">
+                            <i class="sa-top-message"></i>
+                            
+                            <span>Messages</span>
+                        </a>
+                    </div>
+                    <div class="pull-left tm-icon">
+                        <a data-drawer="notifications" class="drawer-toggle" href="">
+                            <i class="sa-top-updates"></i>
+                            <span>Notifications</span>
+                        </a>
+                    </div>
+                    
+                    
+
+                    <div id="time" class="pull-right">
+                        <span id="hours"></span>
+                        :
+                        <span id="min"></span>
+                        :
+                        <span id="sec"></span>
+                    </div>
+
+                    <div class="media-body">
+                        <input type="text" class="main-search">
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="clearfix"></div>
+        
+        <section id="main" class="p-relative" role="main">
+            
+            <!-- Sidebar -->
+            <aside id="sidebar">
+                
+                <!-- Sidbar Widgets -->
+                <div class="side-widgets overflow">
+                    <!-- Profile Menu -->
+                    <div class="text-center s-widget m-b-25 dropdown" id="profile-menu">
+                        <a href="" data-toggle="dropdown">
+                            <img class="profile-pic animated" src="img/profile-pic.jpg" alt="">
+                        </a>
+                        <ul class="dropdown-menu profile-menu">
+                            <li><a href="">Mon compte</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+                            <li><a href="">Mes messages</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+                            <li><a href="">Configuration</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+                            <li><a href="/signout">Se Déconnecter</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+                        </ul>
+                        <h4 class="m-0">{{name}}</h4>                      
+                    </div>
+                    
+                    <!-- Calendar -->
+                    <div class="s-widget m-b-25">
+                        <div id="sidebar-calendar"></div>
+                    </div>
+                    
+             
+                    
+                    <!-- Projects -->
+                    <div class="s-widget m-b-25">
+                        <h2 class="tile-title">
+                            Avancement des cours
+                        </h2>
+                        
+                        <div class="s-widget-body">
+                            <div class="side-border">
+                                <small>DR71</small>
+                                <div class="progress progress-small">
+                                     <a href="#" data-toggle="tooltip" title="" class="progress-bar tooltips progress-bar-danger" style="width: 60%;" data-original-title="60%">
+                                          <span class="sr-only">60% Complete</span>
+                                     </a>
+                                </div>
+                            </div>
+                            <div class="side-border">
+                                <small>SI73</small>
+                                <div class="progress progress-small">
+                                     <a href="#" data-toggle="tooltip" title="" class="tooltips progress-bar progress-bar-info" style="width: 43%;" data-original-title="43%">
+                                          <span class="sr-only">43% Complete</span>
+                                     </a>
+                                </div>
+                            </div>
+                            <div class="side-border">
+                                <small>LE84</small>
+                                <div class="progress progress-small">
+                                     <a href="#" data-toggle="tooltip" title="" class="tooltips progress-bar progress-bar-warning" style="width: 81%;" data-original-title="81%">
+                                          <span class="sr-only">81% Complete</span>
+                                     </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Side Menu -->
+                <ul class="list-unstyled side-menu">
+                    <li class="active">
+                        <a class="sa-side-home" href="#">
+                            <span class="menu-item">Accueil</span>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="sa-side-form" href="">
+                            <span class="menu-item">Menu</span>
+                        </a>
+                        <ul class="list-unstyled menu-item">
+                            <li><a href="/signout">Déconnexion</a></li>
+                            <li><a href="/manage">Gestion cours</a></li>
+                            <li><a href="/attendee">Accueil participant</a></li>
+                            <li><a href="/training">Assister à un cours</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </aside>
+
+            <!-- Content -->
+            <section id="content" class="container">
+            
+                
+                
+                <!-- Breadcrumb -->
+                <ol class="breadcrumb hidden-xs">
+                    <li><a href="#">Home</a></li>
+                    <li class="active">Organiser un cours</li>
+                </ol>
+                
+                <h4 class="page-title">Organiser un cours</h4>
+                
+                <div class="block-area">
+                    <div class="alert alert-info alert-dismissable fade in">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        Cliquez sur les plages horaires disponibles pour créer un nouveau cours
+                    </div>
+                </div>
+                
+                <div class="col-md-8 clearfix">
+                    
+                    <div id="calendar" class="p-relative p-10 m-b-20">
+                        <!-- Calendar Views -->
+                        <ul class="calendar-actions list-inline clearfix">
+                            <li class="p-r-0">
+                                <a data-view="month" href="#" class="tooltips" title="Month">
+                                    <i class="sa-list-month"></i>
+                                </a>
+                            </li>
+                            <li class="p-r-0">
+                                <a data-view="agendaWeek" href="#" class="tooltips" title="Week">
+                                    <i class="sa-list-week"></i>
+                                </a>
+                            </li>
+                            <li class="p-r-0">
+                                <a data-view="agendaDay" href="#" class="tooltips" title="Day">
+                                    <i class="sa-list-day"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div  class="col-md-4">
+                    <h4 class="m-l-5">Participants</h4>
+                    <div id="divParticipants" class="listview narrow">
+                        
+                            <div class="alert alert-info alert-dismissable fade in">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/4.jpg" alt="">
+                                </div>
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <small class="text-muted">Youness BENHAOUSSEA</small><br>
+                                <p>Informatique</p>
+                            </div>
+                        
+                        
+                            <div class="alert alert-info alert-dismissable fade in">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/2.jpg" alt="">
+                                </div>
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <small class="text-muted">Ahmet IMRE</small><br>
+                                <p>Informatique</p>
+                            </div>
+                      
+                            <div class="alert alert-info alert-dismissable fade in">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/3.jpg" alt="">
+                                </div>
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <small class="text-muted">Soufian Besbiss</small><br>
+                                <p>Informatique</p>
+                            </div>
+                    
+                            <div class="alert alert-info alert-dismissable fade in">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/5.jpg" alt="">
+                                </div>
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <small class="text-muted">Cédric Santiago</small><br>
+                                <p>Logistique</p>
+                            </div>
+                       
+                            <div class="alert alert-info alert-dismissable fade in">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/5.jpg" alt="">
+                                </div>
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <small class="text-muted">Julien Rische</small><br>
+                                <p>Energie</p>
+                            </div>
+                               
+                        
+                    </div>
+                    
+                    
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" onclick="initModal();">
+                      Ajouter
+                    </button>
+                </div>
+                
+
+                <!-- Add event -->
+                <div class="modal fade" id="addNew-event">
+                     <div class="modal-dialog">
+                          <div class="modal-content">
+                               <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title">Ajouter un cours</h4>
+                               </div>
+                               <div class="modal-body">
+                                    <form class="form-validation" role="form">
+                                         <div class="form-group">
+                                              <label for="eventName">Nom du cours</label>
+                                              <input type="text" class="input-sm form-control validate[required]" id="eventName" placeholder="...">
+                                         </div>
+                                         
+                                         <input type="hidden" id="getStart" />
+                                         <input type="hidden" id="getEnd" />
+                                    </form>
+                               </div>
+                               
+                               <div class="modal-footer">
+                                    <input type="submit" class="btn btn-info btn-sm" id="addEvent" value="Ajouter">
+                                    <button type="button" class="btn btn-info btn-sm" data-dismiss="modal">Annuler</button>
+                               </div>
+                          </div>
+                     </div>
+                </div>
+                
+                <!-- Modal Resize alert -->
+                <div class="modal fade" id="editEvent">
+                     <div class="modal-dialog">
+                          <div class="modal-content">
+                               <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title">Edit Event</h4>
+                               </div>
+                               <div class="modal-body">
+                                    <div id="eventInfo"></div>
+                               </div>
+                               
+                               <div class="modal-footer">
+                                    <button type="button" class="btn btn-info btn-sm" data-dismiss="modal">Okay</button>
+                                    <button type="button" class="btn btn-info btn-sm" id="editCancel" data-dismiss="modal">Cancel</button>
+                               </div>
+                          </div>
+                     </div>
+                </div>
+                
+                <!-- Modal -->
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Ajout d'un participant</h4>
+                              </div>
+                              <div class="modal-body">
+                                <div class="form-group">
+                                  <label for="nom">Nom:</label>
+                                  <input type="text" class="form-control" id="nom">
+                                </div>
+                                  <div class="form-group">
+                                  <label for="prenom">Prénom:</label>
+                                  <input type="text" class="form-control" id="prenom">
+                                </div>
+                                  <div class="form-group">
+                                  <label for="filiere">Filière:</label>
+                                  <input type="text" class="form-control" id="filiere">
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" onclick="ajoutParticipant();" data-dismiss="modal">Ajouter</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                
+                <br/><br/>
+            </section>
+        </section>
+        
+        <!-- Javascript Libraries -->
+        <!-- jQuery -->
+        <script src="js/jquery.min.js"></script> <!-- jQuery Library -->
+        <script src="js/jquery-ui.min.js"></script> <!-- jQuery UI -->
+
+        <!-- Bootstrap -->
+        <script src="js/bootstrap.min.js"></script>
+        
+        <!-- UX -->
+        <script src="js/scroll.min.js"></script> <!-- Custom Scrollbar -->
+        
+        <!--  Form Related -->
+        <script src="js/validation/validate.min.js"></script> <!-- jQuery Form Validation Library -->
+        <script src="js/validation/validationEngine.min.js"></script> <!-- jQuery Form Validation Library - requirred with above js -->
+        
+        <!-- Other -->
+        <script src="js/JS full versions/calendar.js"></script> <!-- Calendar -->
+        <script src="js/feeds.min.js"></script> <!-- News Feeds -->
+        
+        
+        <!-- All JS functions -->
+        <script src="js/functions.js"></script>
+        <script src="js/monScript.js"></script>
+        
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var date = new Date();
+                var d = date.getDate();
+                var m = date.getMonth();
+                var y = date.getFullYear();
+                $('#calendar').fullCalendar({
+                    header: {
+                         center: 'title',
+                         left: 'prev, next',
+                         right: ''
+                    },
+
+                    selectable: true,
+                    selectHelper: true,
+                    editable: true,
+                    events: [
+                        {
+                            title: 'AD70',
+                            start: new Date(y, m, 1),
+                        },
+                        {
+                            title: 'AD70',
+                            start: new Date(y, m, 10),
+                            allDay: true
+                        },
+                        {
+                            title: 'AD70',
+                            start: new Date(y, m, 16),
+                            allDay: true
+                        },
+                        {
+                            title: 'AD70',
+                            start: new Date(y, m, 20)
+                        },
+                        {
+                            title: 'AD70',
+                            start: new Date(y, m, 7)
+                        },
+                        {
+                            title: 'AD70',
+                            start: new Date(y, m, 21)
+                        },
+                        {
+                            title: 'AD70',
+                            start: new Date(y, m, 6),
+                        }
+                    ],
+                     
+                    //On Day Select
+                    select: function(start, end, allDay) {
+                        $('#addNew-event').modal('show');   
+                        $('#addNew-event input:text').val('');
+                        $('#getStart').val(start);
+                        $('#getEnd').val(end);
+                    },
+                     
+                    eventResize: function(event,dayDelta,minuteDelta,revertFunc) {
+                        $('#editEvent').modal('show');
+
+                        var info =
+                            "The end date of " + event.title + "has been moved " +
+                            dayDelta + " days and " +
+                            minuteDelta + " minutes."
+                        ;
+                        
+                        $('#eventInfo').html(info);
+                
+                
+                        $('#editEvent #editCancel').click(function(){
+                             revertFunc();
+                        }) 
+                    }
+                });
+                
+                $('body').on('click', '#addEvent', function(){
+                     var eventForm =  $(this).closest('.modal').find('.form-validation');
+                     eventForm.validationEngine('validate');
+                     
+                     if (!(eventForm).find('.formErrorContent')[0]) {
+                          
+                          //Event Name
+                          var eventName = $('#eventName').val();
+
+                          //Render Event
+                          $('#calendar').fullCalendar('renderEvent',{
+                               title: eventName,
+                               start: $('#getStart').val(),
+                               end:  $('#getEnd').val(),
+                               allDay: true,
+                          },true ); //Stick the event
+                          
+                          $('#addNew-event form')[0].reset()
+                          $('#addNew-event').modal('hide');
+                     } 
+                });   
+            });    
+            
+            //Calendar views
+            $('body').on('click', '.calendar-actions > li > a', function(e){
+                e.preventDefault();
+                var dataView = $(this).attr('data-view');
+                $('#calendar').fullCalendar('changeView', dataView);
+                
+                //Custom scrollbar
+                var overflowRegular, overflowInvisible = false;
+                overflowRegular = $('.overflow').niceScroll();     
+            });                    
+            
+       </script>
+    </body>
+</html>
+
