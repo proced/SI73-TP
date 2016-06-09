@@ -29,9 +29,13 @@ function initModal()
 function sendMessage()
 {    
     maDiv = document.createElement("div");
+    maDiv.className="media pull-right";
 
-    maDiv.innerHTML = '<div class="media pull-right"><img class="pull-right" src="img/profile-pics/2.jpg" width="30" alt="" /><div class="media-body">'+document.getElementById('txtAreaChat').value+'<small>Me - Now</small></div></div>';
+    maDiv.innerHTML = '<img class="pull-right" src="img/profile-pics/1.jpg" width="30" alt="" /><div class="media-body" style="width:200px;">'+document.getElementById('txtAreaChat').value+'<small>Me - Now</small></div>';
     document.getElementById('divMsg').appendChild(maDiv);
+   
+    document.getElementById('txtAreaChat').value='';
+    
     
     
 }
