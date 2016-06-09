@@ -25,3 +25,13 @@ function initModal()
 	document.getElementById('filiere').value='';
 
 }
+
+function sendMessage()
+{    
+    maDiv = document.createElement("div");
+
+    maDiv.innerHTML = '<div class="media pull-right"><img class="pull-right" src="img/profile-pics/2.jpg" width="30" alt="" /><div class="media-body">'+document.getElementById('txtAreaChat').value+'<small>Me - Now</small></div></div>';
+    document.getElementById('divMsg').appendChild(maDiv);
+    
+    
+}

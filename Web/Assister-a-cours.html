@@ -454,48 +454,35 @@
                                 <i class="fa fa-circle-o status m-r-5"></i> Chat avec des amis
                             </a>
                         </div>
-                    
-                        <div class="chat-body">
-                            <div class="media">
-                                <img class="pull-right" src="img/profile-pics/1.jpg" width="30" alt="" />
-                                <div class="media-body pull-right">
-                                    Salut<br/>
-                                    Comment ça va ?
-                                    <small>Me - 10 Mins ago</small>
+                            <div id="divMsg" class="chat-body">
+                                <div class="media">
+                                    <img class="pull-right" src="img/profile-pics/1.jpg" width="30" alt="" />
+                                    <div class="media-body pull-right">
+                                        Salut<br/>
+                                        Comment ça va ?
+                                        <small>Me - 10 Mins ago</small>
+                                    </div>
                                 </div>
-                            </div>
-                            
-                            <div class="media pull-left">
-                                <img class="pull-left" src="img/profile-pics/2.jpg" width="30" alt="" />
-                                <div class="media-body">
-                                    Je vais bien mais je n'arrive pas à faire l'exercice n°3. <br/>et toi ça va?
-                                    <small>David - 9 Mins ago</small>
+
+                                <div class="media pull-left">
+                                    <img class="pull-left" src="img/profile-pics/2.jpg" width="30" alt="" />
+                                    <div class="media-body">
+                                        Je vais bien mais je n'arrive pas à faire l'exercice n°3. <br/>et toi ça va?
+                                        <small>David - 9 Mins ago</small>
+                                    </div>
                                 </div>
+
+                                
+
+                                
+
                             </div>
-                            
-                            <div class="media pull-right">
-                                <img class="pull-right" src="img/profile-pics/2.jpg" width="30" alt="" />
-                                <div class="media-body">
-                                    Je vais bien <br/> je peu t'aider si tu veux ?
-                                    <small>Me - 8 Mins ago</small>
-                                </div>
-                            </div>
-                            
-                            <div class="media pull-right">
-                                <img class="pull-right" src="img/profile-pics/2.jpg" width="30" alt="" />
-                                <div class="media-body">
-                                    tu t'es arreté ou ?
-                                    <small>Me - 8 Mins ago</small>
-                                </div>
-                            </div>
-                        
-                        </div>
                     
                         <div class="chat-footer media">
                             <i class="chat-list-toggle pull-left fa fa-bars"></i>
-                            <i class="pull-right fa fa-picture-o"></i> 
+                            <i class="pull-right fa fa-picture-o" onclick="sendMessage();"></i> 
                             <div class="media-body">
-                                <textarea class="form-control" placeholder="Type something..."></textarea>
+                                <textarea id="txtAreaChat" class="form-control" placeholder="Type something..." ></textarea>
                             </div>
                         </div>
                     </div>
@@ -583,5 +570,6 @@
 
         <!-- All JS functions -->
         <script src="js/functions.js"></script>
+        <script src="js/monScript.js"></script>
     </body>
 </html>
